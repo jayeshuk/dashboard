@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { BsChevronLeft } from "react-icons/bs";
 import CoinItem from "./CoinItem";
+import { BsChevronLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 function Menu({ coinData }) {

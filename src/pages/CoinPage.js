@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BsFillCaretUpFill, BsFillCaretDownFill } from "react-icons/bs";
 import axios from "axios";
+import { BsChevronLeft } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function CoinPage() {
   const [coin, setCoin] = useState({});
   let { coinUUID } = useParams();
-  const [loading, setLoading] = useState();
+  const navigate = useNavigate();
 
   const options = {
     method: "GET",
@@ -22,7 +24,6 @@ function CoinPage() {
       .then(function (response) {
         console.log("COIN", response.data);
         setCoin(response.data.data.coin);
-        setLoading(false);
       })
       .catch(function (error) {
         console.error(error);
@@ -92,6 +93,14 @@ function CoinPage() {
                 {coin?.description}
               </span>
             </p>
+            <div
+              className="flex row items-center mt-10"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
+            >
+              <BsChevronLeft className="text-xl" />
+              <span className="m-2 text-xl">Go Back</span>
+            </div>
           </div>
         </>
       ) : (
