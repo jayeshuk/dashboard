@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CoinItem({ data }) {
+function CoinItem({ data, searchTerm }) {
   return (
     <div className="mt-5">
       {data.map((coin) => {
         return (
           <Link to={`/coin/${coin.uuid}`} key={coin.uuid}>
-            <div className="py-4 px-2 border-y-1  border-t-grey text-left">
+            <div className="py-4 px-2 border-y-1  border-t-grey text-left w-[100%]">
               <div className="flex row items-center">
                 <div>
                   <img src={coin.iconUrl} alt={coin.name} width={40} />
